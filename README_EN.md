@@ -22,9 +22,7 @@
 
 ## 📖 Overview
 
-`zh-skills` is an open-source, curated collection of AI Agent skills and workflows customized for Chinese software development, compliance reporting, and technical writing workflows.
-
-While the majority of agent skills on the web are designed exclusively for English-centric contexts, `zh-skills` bridges the gap for Chinese localization, China software copyright regulations (CPCC), conventional commit standards with proper typography, and in-depth architecture review.
+`zh-skills` is an open-source, curated collection of AI Agent skills and workflows customized for Chinese developer ecosystems.
 
 Every skill strictly adheres to the **Agent Skills Specification (YAML Frontmatter + Progressive Disclosure)** for maximum triggering accuracy and minimal token overhead.
 
@@ -34,13 +32,9 @@ Every skill strictly adheres to the **Agent Skills Specification (YAML Frontmatt
 
 | Skill Identifier | Category | Core Capabilities | Typical Triggers |
 | :--- | :--- | :--- | :--- |
-| **[`git-commit-zh`](skills/git-commit-zh)** | Engineering | Generates precise, Conventional Commits-compliant Chinese git commit messages. | `write a commit message`, `git commit`, `summarize diff for commit` |
-| **[`pr-review-zh`](skills/pr-review-zh)** | Engineering | Deep 6-pillar code review covering correctness, security, performance, architecture, and tests with actionable diffs. | `review this PR`, `audit branch diff`, `pre-merge check` |
-| **[`api-design-rest`](skills/api-design-rest)** | Architecture | Modern RESTful API design, URI pluralization, status code alignment, and RFC 7807 error models. | `design an API contract`, `review RESTful standards` |
-| **[`software-copyright-helper`](skills/software-copyright-helper)** | Compliance | Extracts first/last 30-page continuous code compliant with CPCC standards, outlines user manuals & design docs. | `software copyright application`, `软著材料整理`, `CPCC code extraction` |
-| **[`tech-blog-zh`](skills/tech-blog-zh)** | Writing | High-impact Chinese technical articles and architecture breakdowns with diagrams, pain point hooks, and proper typography. | `write a tech blog`, `architecture breakdown`, `deep dive tutorial` |
-| **[`changelog-zh`](skills/changelog-zh)** | Delivery | Analyzes git history to produce user-facing, Keep a Changelog & SemVer-compliant release notes in Chinese. | `generate changelog`, `write release notes` |
-| **[`macos-app-cleaner-zh`](skills/macos-app-cleaner-zh)** | System Ops | Surgical uninstallation & orphan file cleaner for macOS desktop apps and CLI toolchain runtimes. | `uninstall app completely`, `clean CLI runtime residue` |
+| **[`macos-app-cleaner-zh`](skills/macos-app-cleaner-zh)** | System Ops | Surgical uninstallation & orphan file cleaner for macOS desktop apps and CLI toolchain runtimes. | `uninstall app completely`, `clean CLI runtime residue`, `macos app cleaner` |
+
+> 💡 **Contributions Welcome**: Use `./scripts/new_skill.sh <name>` to scaffold a new skill and submit a PR!
 
 ---
 
@@ -68,7 +62,7 @@ cd zh-skills
 ### Option 2: Install Specific Skills
 
 ```bash
-./scripts/install.sh git-commit-zh pr-review-zh
+./scripts/install.sh macos-app-cleaner-zh
 ```
 
 ### Option 3: Copy Mode (Standalone Modifications)

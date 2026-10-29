@@ -22,13 +22,13 @@
 
 ## 📖 项目简介
 
-`zh-skills` 是一个专为中文技术生态定制的开源 AI Agent 技能库与工作流集合。
+`zh-skills` 是一个专为中文开发者生态打造的开源 AI Agent 技能仓库与工作流集合。
 
-市面上大多数 Agent 技能主要面向英文语境，缺少对国内研发流程、合规申报与中文写作风格的深度适配。`zh-skills` 严格遵循行业通用的 **Agent Skill 工业级规范（YAML Frontmatter + Progressive Disclosure 渐进式加载）**，旨在让你的 AI 编程助手具备开箱即用的专业能力。
+市面上大多数 Agent 技能主要面向英文语境，缺少对中文技术生态、中文环境工作流的深度适配。`zh-skills` 严格遵循行业通用的 **Agent Skill 工业级规范（YAML Frontmatter + Progressive Disclosure 渐进式加载）**，旨在让你的 AI 编程助手具备开箱即用的专业能力。
 
 ### 🌟 核心特色
 
-- 🇨🇳 **深度本土化场景**：覆盖中国软件著作权申报、中英文规范提交、高质量技术博客排版、专业中文 Code Review 等高频真实场景。
+- 🇨🇳 **专注真实高频痛点**：面向中文环境与本地开发运维痛点定制，提供严谨可靠的自动化工作流。
 - ⚡ **渐进式披露与极低 Token 消耗**：元数据按需常驻，正文控制在 500 行以内，复杂规范与执行脚本通过 `references/` 和 `scripts/` 按需调用，杜绝上下文浪费。
 - 🛠️ **跨端一键安装工具**：提供灵活的跨平台安装脚本 `install.sh`，支持软链接（实时同步上游更新）或拷贝至 Antigravity、Claude Code 或项目本地。
 - 🛡️ **严谨的 CI 自动化校验**：内置 `validate_skills.py` 自动化检测与 GitHub Actions CI，保障每个 Skill 的触发词设计与格式严谨性。
@@ -39,13 +39,9 @@
 
 | 技能标识 (ID) | 类别 | 核心能力说明 | 典型触发场景 |
 | :--- | :--- | :--- | :--- |
-| **[`git-commit-zh`](skills/git-commit-zh)** | 研发提效 | 生成符合 Conventional Commits 规范的精准中文提交信息 | `帮我写个 commit`、`生成提交信息`、`git commit` |
-| **[`pr-review-zh`](skills/pr-review-zh)** | 研发提效 | 从正确性、安全、性能、架构等 6 大维度输出结构化评审报告与修改 Diff | `review 这个 PR`、`审查分支代码`、`合并前检查` |
-| **[`api-design-rest`](skills/api-design-rest)** | 架构设计 | 现代 RESTful API 接口规范设计、HTTP 状态码匹配与统一错误结构 (RFC 7807) | `设计一套订单 API`、`评审接口规范`、`RESTful 设计` |
-| **[`software-copyright-helper`](skills/software-copyright-helper)** | 合规申报 | 提取符合中国版权保护中心（CPCC）规范的前后各 30 页源代码与设计说明书大纲 | `准备软著材料`、`软著源代码提取`、`写软著操作手册` |
-| **[`tech-blog-zh`](skills/tech-blog-zh)** | 技术写作 | 高质量中文技术博客与架构深度剖析写作，规范排版（盘古之白）与图解优先 | `写一篇架构分析博客`、`深度技术分享`、`公众号文章` |
-| **[`changelog-zh`](skills/changelog-zh)** | 发布协同 | 提取 Git 提交记录自动生成面向用户的 Keep a Changelog 规范中文更新日志 | `生成版本更新日志`、`写 Release Notes`、`准备发布公告` |
 | **[`macos-app-cleaner-zh`](skills/macos-app-cleaner-zh)** | 系统运维 | macOS 应用与命令行工具深度外科手术式卸载与残留清理，杜绝误伤与孤儿文件 | `彻底卸载软件`、`清理 CLI 运行时`、`排查大体积残留` |
+
+> 💡 **欢迎共建**：你可以使用 `./scripts/new_skill.sh <name>` 快速创建新技能并提交 PR！
 
 ---
 
@@ -72,10 +68,10 @@ cd zh-skills
 
 ### 方式二：安装指定技能
 
-若只需安装其中某几个技能：
+若只需安装特定技能：
 
 ```bash
-./scripts/install.sh git-commit-zh pr-review-zh
+./scripts/install.sh macos-app-cleaner-zh
 ```
 
 ### 方式三：复制模式（独立魔改）
@@ -90,26 +86,13 @@ cd zh-skills
 
 ## 💡 使用效果示例
 
-### 示例 1：使用 `git-commit-zh` 生成中文提交
+### 示例：使用 `macos-app-cleaner-zh` 深度清理软件
 ```text
-用户: "帮我看一下刚才修改的代码，写个 commit message"
-Agent: 正在分析工作区变更... 识别到新增购物车批量操作与性能查询优化。
-
-建议提交信息：
-feat(cart): 支持购物车批量删除与失效商品一键清空
-
-- 新增批量操作接口 /api/v1/cart/batch-delete
-- 引入 Redis Pipeline 批量清理用户缓存，减少网络往返耗时
-- 补充单元测试用例，覆盖空列表与不存在商品的异常边界
-
-Closes #108
-```
-
-### 示例 2：使用 `pr-review-zh` 审查代码
-```text
-用户: "请用 pr-review-zh 审查一下我当前的这个分支"
-Agent: 正在对分支改动进行 6 维度全量审查...
-输出包含【📌 评审结论】、【🚨 严重问题】、【⚠️ 优化建议】与直接可用的【Diff 代码修改方案】。
+用户: "帮我彻底卸载 QQ 浏览器，检查是否有后台常驻和垃圾残留"
+Agent: 正在执行外科手术式排查...
+1. 审计进程与开机自启项：未发现活跃常驻守护。
+2. 深度扫描磁盘分布：定位到 /Applications/QQBrowser.app 及 ~/Library/Application Support/QQBrowser 等关联残留。
+3. 执行两阶段安全清理并进行复查闭环，实现系统级 0 字节残留！
 ```
 
 ---

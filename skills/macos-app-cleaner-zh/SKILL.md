@@ -23,8 +23,9 @@ description: 专为 macOS 打造的应用与命令行软件深度清理技能。
 | 类型 | 典型形态 | 核心排查要点 |
 | :--- | :--- | :--- |
 | **桌面图形应用 (GUI)** | `/Applications/*.app`<br>`~/Applications/*.app` | 检查 App 运行状态、沙盒 Containers、Application Support、Caches、系统偏好设置 plist |
-| **终端命令行工具 (CLI)** | `$PATH` 下的可执行文件与符号链接 | 检查 `~/.local/bin`、`/usr/local/bin`、版本管理运行库 `~/.local/share/`、遮挡关系（`which -a`） |
+| **终端命令行工具 (CLI)** | `$PATH` 下的可执行文件与符号链接 | 检查 `~/.local/bin`、`/usr/local/bin`、版本管理运行库 `~/.local/share/`、命令遮挡关系（`which -a`） |
 | **宿主扩展/内嵌工具** | VS Code / Cursor 等 IDE 的内部插件 | 检查 `~/Library/Application Support/<Host>/User/globalStorage/` 中的内嵌版本与执行日志 |
+| **临时工具/证书生成器** | 绿色独立 DMG / 一次性生成工具 | 检查 `~/Downloads/` 下工具解压的凭证、历史压缩包及私钥导出文件夹 |
 
 ---
 
@@ -53,7 +54,7 @@ description: 专为 macOS 打造的应用与命令行软件深度清理技能。
 1. **定位 GUI 软件本体**：
    - 检查 `/Applications/<AppName>.app` 及 `~/Applications/<AppName>.app`
 2. **定位 CLI 终端入口与版本库**：
-   - 排查 `$PATH` 链接：`which -a <command>`
+   - 排查 `$PATH` 链接与遮挡：`which -a <command>`（检查移除后是否有同名工具显现）
    - 检查常见的用户层可执行目录：`~/.local/bin/`、`/usr/local/bin/`、`/opt/homebrew/bin/`
    - 检查工具的物理版本库：`~/.local/share/<ToolName>/`（经常占用数百 MB）
 
@@ -79,6 +80,10 @@ description: 专为 macOS 打造的应用与命令行软件深度清理技能。
 3. **用户根目录隐藏配置区**：
    - 检查 `~/.<ToolName>`（重点核对是否存有历史会话数据库、配置或计划文档）
    - 检查 `~/.config/<ToolName>`
+
+4. **下载与临时文件区**：
+   - 检查 `~/Downloads/*<TargetName>*`（工具生成导出的数据、解压包、DMG 镜像）
+   - 检查 `/tmp/*<TargetName>*` 与 `/var/tmp/*<TargetName>*`
 
 ---
 
@@ -126,11 +131,33 @@ description: 专为 macOS 打造的应用与命令行软件深度清理技能。
 
 ---
 
+## 必须检查的关键目录清单速查表
+
+| 层级 | 检查目录路径 | 重点排查内容 |
+| :--- | :--- | :--- |
+| **入口与常驻** | `/Applications/*.app`、`~/Applications/*.app` | GUI 应用本体 |
+| | `~/.local/bin/`、`/usr/local/bin/`、`/opt/homebrew/bin/` | CLI 可执行程序与软链接符号 |
+| | `~/Library/LaunchAgents/`、`/Library/LaunchAgents/`、`/Library/LaunchDaemons/` | 开机自启项与后台常驻守护服务 |
+| **应用支持库** | `~/Library/Application Support/<AppName>` | 核心应用数据、扩展插件、内部离线库 |
+| | `~/Library/Caches/<BundleID 或 AppName>` | 网络与本地大体积缓存 |
+| | `~/Library/Preferences/<BundleID>.plist` | 系统偏好设置参数与配置项 |
+| | `~/Library/Saved Application State/<BundleID>.savedState` | 应用退出前的窗口与页面状态快照 |
+| | `~/Library/Containers/<BundleID>` | macOS App 沙盒隔离运行目录 |
+| | `~/Library/Group Containers/<GroupID>` | 跨应用共享数据容器 |
+| | `~/Library/HTTPStorages/<BundleID>`、`WebKit/`、`Logs/` | 网络请求临时存储与运行错误日志 |
+| **用户与环境** | `~/.<ToolName>/`、`~/.config/<ToolName>/` | 隐藏主配置目录、本地 SQLite 数据库 |
+| | `~/.local/share/<ToolName>/` | 命令行工具实际二进制版本库（体积通常较大） |
+| | `~/Downloads/` | 工具导出的私钥/证书文件、解压目录、DMG 镜像 |
+| **深层盲区** | `~/Library/Application Support/{Cursor,Code}/User/globalStorage/` | IDE 宿主内部偷偷缓存的 Worker 或运行时副本 |
+
+---
+
 ## 质量自检清单
 
 - [ ] 是否在删除前排查并停止了后台常驻进程与自启守护（LaunchAgents）
-- [ ] 是否检查了 CLI 符号链接与实际版本库（`~/.local/share/`）
+- [ ] 是否检查了 CLI 符号链接、命令遮挡（`which -a`）与实际版本库（`~/.local/share/`）
 - [ ] 是否挖掘了宿主 IDE / Electron 的全局内部缓存（globalStorage）
+- [ ] 是否检查了 `~/Downloads/` 目录下工具导出的产物或解压包
 - [ ] 是否绝对排除了用户工作目录中的开发源码（Documents/Projects）
 - [ ] 是否对私钥、证书及敏感凭证进行了高危警告提示
 - [ ] 是否在执行删除后完成了 Spotlight 与文件系统的二次复查验证
