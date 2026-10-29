@@ -32,7 +32,7 @@ Every skill strictly adheres to the **Agent Skills Specification (YAML Frontmatt
 
 | Skill Identifier | Category | Core Capabilities | Typical Triggers |
 | :--- | :--- | :--- | :--- |
-| **[`macos-app-cleaner-zh`](skills/macos-app-cleaner-zh)** | System Ops | Surgical uninstallation & orphan file cleaner for macOS desktop apps and CLI toolchain runtimes. | `uninstall app completely`, `clean CLI runtime residue`, `macos app cleaner` |
+| **[`macos-app-cleaner`](skills/macos-app-cleaner)** | System Ops | Surgical uninstallation & orphan file cleaner for macOS desktop apps and CLI toolchain runtimes. | `uninstall app completely`, `clean CLI runtime residue`, `macos app cleaner` |
 
 > 💡 **Contributions Welcome**: Use `./scripts/new_skill.sh <name>` to scaffold a new skill and submit a PR!
 
@@ -62,7 +62,7 @@ cd zh-skills
 ### Option 2: Install Specific Skills
 
 ```bash
-./scripts/install.sh macos-app-cleaner-zh
+./scripts/install.sh macos-app-cleaner
 ```
 
 ### Option 3: Copy Mode (Standalone Modifications)

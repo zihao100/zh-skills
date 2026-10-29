@@ -41,7 +41,7 @@ show_help() {
     echo "示例:"
     echo "  ./scripts/install.sh                             # 软链接全部技能至 Antigravity"
     echo "  ./scripts/install.sh --target claude             # 软链接全部技能至 Claude Code"
-    echo "  ./scripts/install.sh --mode copy git-commit-zh   # 仅复制 git-commit-zh 技能"
+    echo "  ./scripts/install.sh --mode copy macos-app-cleaner   # 仅复制 macos-app-cleaner 技能"
     echo "  ./scripts/install.sh --target ./my-project/skills"
 }
 

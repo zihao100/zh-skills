@@ -29,7 +29,7 @@
    - 保证 0 Error，0 Warning。
 
 3. **创建新技能的标准流程**：
-   - 技能名称采用 kebab-case 全小写中划线（例如 `k8s-troubleshoot-zh`）。
+   - 技能名称采用 kebab-case 全小写中划线，**末尾不带 `-zh` 后缀**（例如 `k8s-troubleshoot`，不要写成 `k8s-troubleshoot-zh`）。
    - YAML Frontmatter 中的 `name` 必须与所在文件夹名完全一致。
    - `description` 必须详细说明“**何时触发**”与“**核心解决什么问题**”，字数适中并带有明确的触发关键词。
    - 正文篇幅控制在 500 行以内，复杂内容下沉至 `references/` 目录。

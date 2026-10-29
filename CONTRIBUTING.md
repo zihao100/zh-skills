@@ -26,7 +26,7 @@ git checkout -b feat/add-my-awesome-skill
 ```
 例如：
 ```bash
-./scripts/new_skill.sh docker-compose-zh
+./scripts/new_skill.sh docker-compose
 ```
 
 编辑 `skills/<skill-name>/SKILL.md`，编写技能工作流与示例。若有较长参考文档，放入 `references/` 目录；若有辅助脚本，放入 `scripts/` 目录。

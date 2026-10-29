@@ -55,9 +55,11 @@ def validate_skill(skill_dir: Path):
         errors.append("缺少核心入口文件 `SKILL.md`")
         return errors, warnings
 
-    # 2. 文件夹命名规范检查 (kebab-case)
+    # 2. 文件夹命名规范检查 (kebab-case 且无需 -zh 后缀)
     if not re.match(r"^[a-z0-9]+(-[a-z0-9]+)*$", skill_name):
         warnings.append(f"文件夹命名建议采用全小写 kebab-case: '{skill_name}'")
+    if skill_name.endswith("-zh") or skill_name.endswith("_zh"):
+        warnings.append(f"技能名称建议保持纯净通用，末尾不要带有 '-zh' 后缀: '{skill_name}'")
 
     try:
         content = skill_file.read_text(encoding="utf-8")

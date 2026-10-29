@@ -32,7 +32,7 @@
 **A**: 
 1. **检查是否正确安装**：确认技能目录已成功出现在 `~/.gemini/config/skills/` 或对应 Agent 配置目录下。
 2. **重启 Agent 会话**：部分 Agent 客户端在启动初始化时缓存技能列表，请退出终端或重启会话使新技能生效。
-3. **欠触发 (Undertriggering)**：模型可能认为当前请求无需专门技能。您可以直接在提问中带入关键词或技能名称，例如：“*请使用 git-commit-zh 技能帮我写个提交信息*”；或参考 [SKILL_SPEC.md](SKILL_SPEC.md) 优化该技能的 `description`。
+3. **欠触发 (Undertriggering)**：模型可能认为当前请求无需专门技能。您可以直接在提问中带入关键词或技能名称，例如：“*请使用 macos-app-cleaner 技能帮我排查残留*”；或参考 [SKILL_SPEC.md](SKILL_SPEC.md) 优化该技能的 `description`。
 
 ---
 

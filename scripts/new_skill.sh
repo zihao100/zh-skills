@@ -25,7 +25,7 @@ fi
 
 # 检查命名规范
 if [[ ! "${SKILL_NAME}" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
-    echo -e "${RED}错误: 技能名称必须为小写字母、数字与中划线组合 (kebab-case)，例如: code-review-zh${NC}"
+    echo -e "${RED}错误: 技能名称必须为小写字母、数字与中划线组合 (kebab-case)，且无需带 -zh 后缀，例如: code-review${NC}"
     exit 1
 fi
 

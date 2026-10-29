@@ -39,7 +39,7 @@
 
 | 技能标识 (ID) | 类别 | 核心能力说明 | 典型触发场景 |
 | :--- | :--- | :--- | :--- |
-| **[`macos-app-cleaner-zh`](skills/macos-app-cleaner-zh)** | 系统运维 | macOS 应用与命令行工具深度外科手术式卸载与残留清理，杜绝误伤与孤儿文件 | `彻底卸载软件`、`清理 CLI 运行时`、`排查大体积残留` |
+| **[`macos-app-cleaner`](skills/macos-app-cleaner)** | 系统运维 | macOS 应用与命令行工具深度外科手术式卸载与残留清理，杜绝误伤与孤儿文件 | `彻底卸载软件`、`清理 CLI 运行时`、`排查大体积残留` |
 
 > 💡 **欢迎共建**：你可以使用 `./scripts/new_skill.sh <name>` 快速创建新技能并提交 PR！
 
@@ -71,7 +71,7 @@ cd zh-skills
 若只需安装特定技能：
 
 ```bash
-./scripts/install.sh macos-app-cleaner-zh
+./scripts/install.sh macos-app-cleaner
 ```
 
 ### 方式三：复制模式（独立魔改）
@@ -86,7 +86,7 @@ cd zh-skills
 
 ## 💡 使用效果示例
 
-### 示例：使用 `macos-app-cleaner-zh` 深度清理软件
+### 示例：使用 `macos-app-cleaner` 深度清理软件
 ```text
 用户: "帮我彻底卸载 QQ 浏览器，检查是否有后台常驻和垃圾残留"
 Agent: 正在执行外科手术式排查...

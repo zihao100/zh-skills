@@ -10,7 +10,7 @@ assignees: ""
 简要说明遇到的问题或缺陷。
 
 ### 涉及技能 / 脚本
-例如: `skills/git-commit-zh` 或 `scripts/install.sh`
+例如: `skills/macos-app-cleaner` 或 `scripts/install.sh`
 
 ### 复现步骤
 1. 执行操作 / 提示词: `...`

@@ -1,9 +1,9 @@
 ---
-name: macos-app-cleaner-zh
+name: macos-app-cleaner
 description: 专为 macOS 打造的应用与命令行软件深度清理技能。全域覆盖桌面 GUI 应用（.app）与终端 CLI 工具（Agent 运行时），深度挖掘沙盒隔离、应用支持库、开机自启常驻项及 IDE 宿主内部隐藏副本，严格遵循工程源码与私钥资产隔离护栏，实现 0 残留且安全可靠的两阶段清理与二次复查闭环。
 ---
 
-# macos-app-cleaner-zh - macOS 应用与 CLI 深度清理技能
+# macos-app-cleaner - macOS 应用与 CLI 深度清理技能
 
 ## 核心目标
 
