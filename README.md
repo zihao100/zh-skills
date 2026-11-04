@@ -5,10 +5,8 @@
 **面向中文开发者的高质量、开箱即用 AI Agent 技能仓库**
 
 <p align="center">
-  <a href="https://github.com/zihao100/zh-skills/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen?style=flat-square&logo=githubactions" alt="CI"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License"></a>
   <a href="./docs/SKILL_SPEC.md"><img src="https://img.shields.io/badge/Spec-Agent%20Skills-orange?style=flat-square" alt="Spec"></a>
-  <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-green.svg?style=flat-square" alt="PRs Welcome"></a>
   <a href="./README_EN.md"><img src="https://img.shields.io/badge/English-Documentation-blue?style=flat-square" alt="English Doc"></a>
 </p>
 
@@ -31,7 +29,7 @@
 - 🇨🇳 **专注真实高频痛点**：面向中文环境与本地开发运维痛点定制，提供严谨可靠的自动化工作流。
 - ⚡ **渐进式披露与极低 Token 消耗**：元数据按需常驻，正文控制在 500 行以内，复杂规范与执行脚本通过 `references/` 和 `scripts/` 按需调用，杜绝上下文浪费。
 - 🛠️ **跨端一键安装工具**：提供灵活的跨平台安装脚本 `install.sh`，支持软链接（实时同步上游更新）或拷贝至 Antigravity、Claude Code 或项目本地。
-- 🛡️ **严谨的 CI 自动化校验**：内置 `validate_skills.py` 自动化检测与 GitHub Actions CI，保障每个 Skill 的触发词设计与格式严谨性。
+- 🛡️ **可自检的规范校验**：内置 `validate_skills.py`，一条命令即可检查 Frontmatter、命名、描述长度与本地引用完整性，改完立刻知道有没有写坏。
 
 ---
 
@@ -41,7 +39,7 @@
 | :--- | :--- | :--- | :--- |
 | **[`macos-app-cleaner`](skills/macos-app-cleaner)** | 系统运维 | macOS 应用与命令行工具深度外科手术式卸载与残留清理，杜绝误伤与孤儿文件 | `彻底卸载软件`、`清理 CLI 运行时`、`排查大体积残留` |
 
-> 💡 **欢迎共建**：你可以使用 `./scripts/new_skill.sh <name>` 快速创建新技能并提交 PR！
+> 💡 **新增技能**：使用 `./scripts/new_skill.sh <name>` 生成符合规范的骨架，改完跑一遍 `python3 scripts/validate_skills.py` 即可。
 
 ---
 
@@ -111,7 +109,7 @@ zh-skills/
 │       └── assets/             # [可选] 模板、示例等静态资源
 ├── scripts/                    # 运维与校验工具
 │   ├── install.sh              # 一键安装脚本
-│   ├── validate_skills.py      # 规范校验器 (CI 使用)
+│   ├── validate_skills.py      # 规范校验器（本地自检使用）
 │   └── new_skill.sh            # 快速脚手架工具
 └── docs/
     ├── SKILL_SPEC.md           # 详细开发与提示词编写规范
@@ -132,15 +130,15 @@ python3 scripts/validate_skills.py
 
 ---
 
-## 🤝 参与贡献
+## 🤝 反馈与建议
 
-我们非常期待社区的参与！你可以通过以下方式为 `zh-skills` 添砖加瓦：
+本仓库为个人维护的技能集合，没有固定的社区 review 流程，也不承诺处理时限。
 
-1. **贡献新技能**：提交解决实际开发或办公痛点的中文技能；
-2. **优化既有技能**：改进提示词触发描述、增加实用脚本或更新参考资料；
-3. **反馈与建议**：提出新技能提案或报告问题。
+1. **报告问题**：某个技能触发不准、执行出错，欢迎提 issue，最好附上系统版本与复现步骤；
+2. **改进建议**：有更好的工作流或补充资料，直接提 issue 讨论；
+3. **自己改**：Fork 之后随意改造，[**CONTRIBUTING.md**](CONTRIBUTING.md) 里的流程与校验命令同样适用于你自己的副本。
 
-提交前请阅读完整 [**CONTRIBUTING.md**](CONTRIBUTING.md) 贡献指南。
+`skills/` 下的技能遵循同一套规范，新增技能的开发流程见 [**docs/SKILL_SPEC.md**](docs/SKILL_SPEC.md)。
 
 ---
 

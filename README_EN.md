@@ -5,10 +5,8 @@
 **High-Quality, Production-Ready AI Agent Skills for Chinese Engineering & Workflow Ecosystems**
 
 <p align="center">
-  <a href="https://github.com/zihao100/zh-skills/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen?style=flat-square&logo=githubactions" alt="CI"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License"></a>
   <a href="./docs/SKILL_SPEC.md"><img src="https://img.shields.io/badge/Spec-Agent%20Skills-orange?style=flat-square" alt="Spec"></a>
-  <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-green.svg?style=flat-square" alt="PRs Welcome"></a>
   <a href="./README.md"><img src="https://img.shields.io/badge/中文文档-简体中文-red?style=flat-square" alt="Chinese Doc"></a>
 </p>
 
@@ -34,7 +32,7 @@ Every skill strictly adheres to the **Agent Skills Specification (YAML Frontmatt
 | :--- | :--- | :--- | :--- |
 | **[`macos-app-cleaner`](skills/macos-app-cleaner)** | System Ops | Surgical uninstallation & orphan file cleaner for macOS desktop apps and CLI toolchain runtimes. | `uninstall app completely`, `clean CLI runtime residue`, `macos app cleaner` |
 
-> 💡 **Contributions Welcome**: Use `./scripts/new_skill.sh <name>` to scaffold a new skill and submit a PR!
+> 💡 **Adding a skill**: Run `./scripts/new_skill.sh <name>` to scaffold a spec-compliant skill, then verify it with `python3 scripts/validate_skills.py`.
 
 ---
 
@@ -87,7 +85,7 @@ zh-skills/
 │       └── assets/             # [Optional] Templates and static assets
 ├── scripts/                    # Maintenance and validation tools
 │   ├── install.sh              # Cross-platform installer
-│   ├── validate_skills.py      # Skill specification linter (used in CI)
+│   ├── validate_skills.py      # Skill specification linter (local check)
 │   └── new_skill.sh            # Scaffolding tool
 └── docs/
     ├── SKILL_SPEC.md           # Authoring specification
@@ -108,9 +106,11 @@ For full details, please refer to [**docs/SKILL_SPEC.md**](docs/SKILL_SPEC.md).
 
 ---
 
-## 🤝 Contributing
+## 🤝 Feedback
 
-Contributions are warmly welcomed! Please read our [**CONTRIBUTING.md**](CONTRIBUTING.md) guide before submitting a Pull Request.
+This is a personally maintained collection. There is no formal community review process and no response-time commitment.
+
+Issues with reproduction steps are welcome. Forks and local modifications are free under the MIT license — the workflow and verification commands in [**CONTRIBUTING.md**](CONTRIBUTING.md) apply to your own copy as well.
 
 ---
 

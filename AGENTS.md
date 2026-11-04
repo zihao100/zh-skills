@@ -11,7 +11,7 @@
 - `skills/<skill-name>/`: 核心技能目录。每个子目录代表一个独立技能，必须包含 `SKILL.md`。
 - `scripts/`: 仓库维护脚本，包括安装工具 `install.sh`、校验工具 `validate_skills.py`、脚手架 `new_skill.sh`。
 - `docs/`: 规范文档（`SKILL_SPEC.md`）与常见问题（`FAQ.md`）。
-- `.github/`: CI 自动化测试工作流与 Issue/PR 模板。
+- `.github/`: Issue/PR 模板。
 
 ---
 

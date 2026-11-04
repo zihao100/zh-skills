@@ -43,11 +43,11 @@
 
 ---
 
-### Q6: 如何贡献一个我自己打造的技能？
+### Q6: 如何基于本仓库打造自己的技能？
 
 **A**: 
-非常欢迎！请参考 [CONTRIBUTING.md](../CONTRIBUTING.md)：
+Fork 或直接克隆本仓库，流程见 [CONTRIBUTING.md](../CONTRIBUTING.md)：
 1. 运行 `./scripts/new_skill.sh <your-skill-name>` 快速创建骨架；
 2. 完善 `SKILL.md` 与相关资源；
-3. 运行 `python3 scripts/validate_skills.py` 确保校验 100% 通过；
-4. 提交 Pull Request，社区将在 24 小时内进行 Review 与合并。
+3. 运行 `python3 scripts/validate_skills.py` 确保校验通过；
+4. 提交到你自己的仓库，或用软链接接回本地 Agent 环境。
